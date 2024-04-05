@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Peter Sonnenmann",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": 134.6,
+      "left": 209.36,
+      "attrs": { "chain": "4" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 67.96, "left": 566.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 211.2, "left": 565.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:21", "matrix1:CS.2", "green", [ "h24.04", "v76.8", "h0", "v28.4" ] ],
+    [ "esp:18", "matrix1:CLK.2", "green", [ "h14.44", "v86" ] ],
+    [ "esp:23", "matrix1:DIN", "green", [ "h33.64", "v86.4", "h422.4", "v47.6" ] ],
+    [ "matrix1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "vcc1:VCC", "matrix1:V+", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
